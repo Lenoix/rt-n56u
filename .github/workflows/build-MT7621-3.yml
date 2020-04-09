@@ -108,7 +108,7 @@ jobs:
         repo_token: ${{ secrets.R_TOKEN }}
         file: /opt/images/*.trx
         tag: AutoBuild
-        overwrite: ture
+        overwrite: true
         file_glob: true
     #- uses: ncipollo/release-action@v1
     #  with:
