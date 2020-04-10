@@ -1,4 +1,4 @@
-name: Build MT7621-3
+name: Build MT7621-K2P-usb-nano-4.4
 
 on: 
   release:
@@ -38,7 +38,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: "K2P-5.0 K2P_nano-5.0 K2P_nano K2P WR1200JS"
+        TNAME: "K2P-USB  K2P_nano"
       run: |
         cwd=`pwd`
         CONFIG_TOOLCHAIN_DIR=${cwd//\//\\\/}\\/toolchain-mipsel
@@ -91,7 +91,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_IPT2SOCKS=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_MICROSOCKS=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config
-        if [ "$m" = "K2P-5.0" ] || [ "$m" = "K2P" ]; then
+        if [ "$m" = "K2P-5.0" ]; then
         echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #v2ray二进制文件
         else
         echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #v2ray二进制文件
@@ -120,5 +120,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Padavan-firmware
+        name: Padavan-firmware_K2P-USB-4.4-K2P_nano-4.4
         path: /opt/images/
