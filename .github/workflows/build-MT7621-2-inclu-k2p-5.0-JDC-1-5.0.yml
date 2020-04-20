@@ -3,7 +3,7 @@ name: Build MT7621-2-wk2p-5.0-JDC-1-5.0
 on: 
   release:
     types: [published]
-#  push:
+  push:
 #    tags:
 #    - 'v*'
   #  branches: 
