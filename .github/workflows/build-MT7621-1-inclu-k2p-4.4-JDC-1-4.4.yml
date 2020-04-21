@@ -1,4 +1,4 @@
-name: Build MT7621-1-wk2p-JDC-1
+name: Build MT7621-1-inclu-k2p-4.4-JDC-1-4.4
 
 on: 
   release:
@@ -106,5 +106,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Padavan-firmware
+        name: Padavan-firmware-MT7621-1-inclu-k2p-4.4-JDC-1-4.4
         path: /opt/images/

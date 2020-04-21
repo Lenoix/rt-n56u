@@ -106,5 +106,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Padavan-firmware_K2P-USB-4.4-K2P_nano-4.4
+        name: Padavan-firmware-MT7621-1-K2P-USB-4.4-K2P_nano-4.4
         path: /opt/images/
