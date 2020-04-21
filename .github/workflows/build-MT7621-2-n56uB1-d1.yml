@@ -1,9 +1,9 @@
-name: Build MT7621-2-wk2p-5.0-JDC-1-5.0
+name: Build MT7621-2-RT-N56UB1-NEWIFI-D1
 
 on: 
   release:
     types: [published]
-#  push:
+  push:
 #    tags:
 #    - 'v*'
   #  branches: 
@@ -36,11 +36,15 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: "JDC-1-5.0 B70 NEWIFI-D1 GHL K2P-5.0 NEWIFI3 MI-R3G XY-C1"
+        TNAME: "RT-N56UB1 NEWIFI-D1"
       run: |
         cwd=`pwd`
         CONFIG_TOOLCHAIN_DIR=${cwd//\//\\\/}\\/toolchain-mipsel
         cd trunk
+
+        cp -r configs/boards/NEWIFI-D1/ configs/boards/RT-N56UB1
+        cp configs/templates/NEWIFI-D1.config configs/templates/RT-N56UB1.config
+
         for m in $TNAME;
         do
         if [ ! -f configs/templates/$m.config ] ; then
@@ -99,8 +103,8 @@ jobs:
         sudo mv -f images/*.trx /opt/images/
         done
 
-    - name: Upload artifact
+  - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Padavan-firmware
+        name: Padavan-RT-N56UB1-newifid1-firmware
         path: /opt/images/
