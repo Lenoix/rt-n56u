@@ -220,8 +220,12 @@ struct nvram_pair router_defaults[] = {
 	{ "wl_greenap", "0" },
 	{ "wl_ldpc", "2" },
 	{ "wl_HT_RDG", "0" },
-	#if defined (USE_WID_5G) && USE_WID_5G==7615
+#if defined (USE_WID_5G) && USE_WID_5G==7615
+#if defined (BOARD_MT7615_DBDC)
+	{ "wl_HT_AMSDU", "0" },
+#else
 	{ "wl_HT_AMSDU", "1" },
+#endif
 #else
 	{ "wl_HT_AMSDU", "0" },
 #endif
@@ -442,6 +446,8 @@ struct nvram_pair router_defaults[] = {
 	{ "adbyby_rules_x", "0" },
 	{ "adbybyip_staticnum_x", "0" },
 	{ "adbybyrules_staticnum_x", "0" },
+	{ "block_ios", "0" },
+	{ "block_douyin", "0" },
 	{ "anti_ad", "0" },
 	{ "anti_ad_link", "https://gitee.com/privacy-protection-tools/anti-ad/raw/master/anti-ad-for-dnsmasq.conf" },
 	{ "anti_ad_count", "0" },
@@ -694,6 +700,7 @@ struct nvram_pair router_defaults[] = {
 	{ "d_port", "" },
 	{ "d_type", "" },
 	{ "ud_type", "" },
+	{ "s5_type", "" },
 	{ "d_v2_aid", "" },
 	{ "d_v2_uid", "" },
 	{ "d_v2_security", "" },
@@ -711,6 +718,7 @@ struct nvram_pair router_defaults[] = {
 	{ "d_keyword_n", "" },
 	{ "d_keyword_y", "" },
 	{ "d_update_link", "" },
+	{ "ss_keyword", "过期时间/剩余流量" },
 
 	
 	/* AdguargHome */
